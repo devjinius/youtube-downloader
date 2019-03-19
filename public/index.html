@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YouTube Downloader</title>
+  </head>
+  <body>
+    <div>
+      <div class="header">
+        <h1 class="heading">Youtube 파일받기</h1>
+        <h3>youtube의 좋아하는 영상을 파일로 받아봅시다.</h3>
+        아래에 링크를 입력해주세요 😶
+      </div>
+      <div class="content">
+        <input
+          class="urlInput"
+          placeholder="Video URL (https://www.youtube.com/watch?v=MtN1YnoL46)"
+        />
+        <button class="downButton">Download</button>
+      </div>
+      <div class="footer">
+        다운 받은 파일을 사용할 경우 저작권에 유의해주시기 바랍니다.
+      </div>
+    </div>
+  </body>
+  <script>
+    const downBtn = document.querySelector('.downButton');
+    const urlInput = document.querySelector('.urlInput');
+
+    const sendURL = URL => (window.location.href = `http://localhost:4000/download?URL=${URL}`);
+
+    downBtn.addEventListener('click', e => {
+      const URL = sendURL(urlInput.value);
+    });
+  </script>
+  <style>
+    .content {
+      text-align: inherit;
+      font-size: 30px;
+      margin: 20px 0px;
+    }
+    .urlInput {
+      width: 400px;
+      border: 0.5px solid white;
+      border-bottom: 3px solid #2ecc71;
+      height: 50px;
+    }
+    .urlInput:focus {
+      outline: none;
+    }
+    .urlInput:focus::-webkit-input-placeholder {
+      color: transparent;
+    }
+    .downButton {
+      background-color: #2ecc71;
+      border: 3px solid white;
+      border-radius: 1rem;
+      color: #ffffff;
+      width: 100px;
+      height: 60px;
+      display: inline-block;
+    }
+    .footer {
+      margin: 20px 0px;
+    }
+  </style>
+</html>
